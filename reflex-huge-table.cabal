@@ -15,10 +15,13 @@ executable reflex-huge-table
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  ghc-options:         -Wall -Werror -dedupe
+  ghc-options:         -Wall -Werror -O2
+  if impl(ghcjs)
+    ghc-options: -dedupe
 
   build-depends:       base
                      , reflex
                      , reflex-dom
                      , string-class
                      , text
+                     , transformers
